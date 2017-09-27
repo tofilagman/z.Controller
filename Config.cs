@@ -20,7 +20,7 @@ namespace z.Controller
         /// <returns></returns>
         public static object Get(string Name)
         {
-            if (RoleEnvironment.IsAvailable)
+            if (IsCloudApp)
                 return RoleEnvironment.GetConfigurationSettingValue(Name);
             else
                 return ConfigurationManager.AppSettings.Get(Name);
@@ -33,7 +33,14 @@ namespace z.Controller
         {
             get
             {
-                return RoleEnvironment.IsAvailable;
+                try
+                {
+                    return RoleEnvironment.IsAvailable;
+                }
+                catch
+                {
+                    return false;
+                }
             }
         }
 
