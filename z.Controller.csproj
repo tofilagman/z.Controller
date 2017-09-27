@@ -173,16 +173,14 @@
       <HintPath>packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="z.Data, Version=1.1.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\z.Data.1.1.0.2\lib\net45\z.Data.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="z.Data, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\z.Data.1.1.1\lib\net45\z.Data.dll</HintPath>
     </Reference>
     <Reference Include="z.IO">
       <HintPath>packages\z.IO.1.1.2\lib\net45\z.IO.dll</HintPath>
     </Reference>
-    <Reference Include="z.SQL, Version=1.1.8.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\z.SQL.1.1.8\lib\net45\z.SQL.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="z.SQL, Version=1.1.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\z.SQL.1.1.9\lib\net45\z.SQL.dll</HintPath>
     </Reference>
     <Reference Include="z.Zipper, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
