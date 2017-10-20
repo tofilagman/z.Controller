@@ -13,6 +13,34 @@ namespace z.Controller
     /// </summary>
     public sealed class Config
     {
+
+        /// <summary>
+        /// Manual Config
+        /// </summary>
+        /// <param name="isCloudApp"></param>
+        /// <param name="useAppConfig"></param>
+        public static void Init(bool isCloudApp, bool useAppConfig)
+        {
+            IsCloudApp = isCloudApp;
+            UseAppConfig = useAppConfig;
+        }
+
+        /// <summary>
+        /// AutoConfig
+        /// </summary>
+        public static void Init()
+        {
+            var b = false;
+            try
+            {
+                b = RoleEnvironment.IsAvailable;
+            }
+            catch { }
+
+            Init(b, b);
+        }
+
+
         /// <summary>
         /// Get Config
         /// </summary>
@@ -20,10 +48,10 @@ namespace z.Controller
         /// <returns></returns>
         public static object Get(string Name)
         {
-            if (IsCloudApp)
-                return RoleEnvironment.GetConfigurationSettingValue(Name);
-            else
+            if (UseAppConfig)
                 return ConfigurationManager.AppSettings.Get(Name);
+            else
+                return RoleEnvironment.GetConfigurationSettingValue(Name);
         }
 
         /// <summary>
@@ -31,18 +59,10 @@ namespace z.Controller
         /// </summary>
         public static bool IsCloudApp
         {
-            get
-            {
-                try
-                {
-                    return RoleEnvironment.IsAvailable;
-                }
-                catch
-                {
-                    return false;
-                }
-            }
+            get; set;
         }
+
+        public static bool UseAppConfig { get; set; }
 
     }
 }
