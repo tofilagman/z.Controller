@@ -79,7 +79,8 @@ namespace z.Controller.Storage
 
         public void Upload(InSysContainer cntr, string filename, Stream fp)
         {
-            var gf = Path.Combine(RootPath, cntr.Name, filename).CheckDir();
+            var gf = Path.Combine(RootPath, cntr.Name, filename).CheckDir().DeleteFileIfExists();
+             
             using (var fs = File.OpenWrite(gf))
             {
                 fp.Seek(0, SeekOrigin.Begin);
@@ -93,7 +94,7 @@ namespace z.Controller.Storage
         {
             using (MemoryStream ms = new MemoryStream(ASCIIEncoding.Default.GetBytes(base64)))
             {
-                var gg = Path.Combine(RootPath, cntr.Name, filename).CheckDir();
+                var gg = Path.Combine(RootPath, cntr.Name, filename).CheckDir().DeleteFileIfExists();
                 using (var fs = File.OpenWrite(gg))
                 {
                     ms.Seek(0, SeekOrigin.Begin);

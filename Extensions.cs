@@ -46,5 +46,13 @@ namespace z.Controller
             if (!Directory.Exists(g)) Directory.CreateDirectory(g);
             return dr;
         }
+
+        public static string DeleteFileIfExists(this string file)
+        {
+            if (File.Exists(file))
+                File.Delete(file);
+
+            return file;
+        }
     }
 }
